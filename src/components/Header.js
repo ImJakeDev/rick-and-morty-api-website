@@ -7,20 +7,21 @@ const Header = () => {
   return (
     <header>
       <Container>
-        <p>
-          My Gatsby Site
-        </p>
-        <ul>
+        <Link to="/">
+          <p>Rick and Morty Stuff</p>
+        </Link>
+
+        {/* <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/page-2/">Page 2</Link>
           </li>
-        </ul>
+        </ul> */}
       </Container>
     </header>
-  );
+  )
 };
 
 export default Header;
