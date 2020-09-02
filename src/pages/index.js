@@ -5,7 +5,7 @@ import useCharacter from "hooks/useCharacter"
 
 import Layout from "components/Layout"
 import Container from "components/Container"
-import CardEffect from "../components/CardEffect"
+import CardEffect from "../components/CardEffects"
 
 const IndexPage = () => {
   const { character: allCharacters } = useCharacter()
@@ -16,11 +16,11 @@ const IndexPage = () => {
         <title>Home Page</title>
       </Helmet>
       <Container>
-        <ul className="allCharactersContainer">
+        <div className="allCharactersContainer">
           {allCharacters.map((character, index) => (
             <CardEffect key={index} index={index} character={character} />
           ))}
-        </ul>
+        </div>
       </Container>
     </Layout>
   )

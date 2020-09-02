@@ -4,18 +4,17 @@ export default function useCharacter() {
   const data = useStaticQuery(graphql`
     {
       allCharacter {
-        edges {
-          node {
-            image
-            name
-            gender
-            species
-            status
-          }
+        nodes {
+          image
+          id
+          name
+          species
+          gender
+          status
         }
       }
     }
-  `);
+  `)
 
   const character = data.allCharacter.nodes.map(node => {
     const { id, image, name, gender, species, status } = node
