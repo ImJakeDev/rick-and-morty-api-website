@@ -1,40 +1,29 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import React from "react"
+import { Helmet } from "react-helmet"
 
-import Layout from 'components/Layout';
-import Container from 'components/Container';
+import useCharacter from "hooks/useCharacter"
 
-import img_gatsby from 'assets/images/gatsby-astronaut.png';
+import Layout from "components/Layout"
+import Container from "components/Container"
+import CardEffect from "../components/CardEffect"
 
 const IndexPage = () => {
+  const { character: allCharacters } = useCharacter()
+
   return (
     <Layout pageName="home">
       <Helmet>
         <title>Home Page</title>
       </Helmet>
       <Container>
-        <p className="gatsby-astronaut">
-          <img src={img_gatsby} alt="Build with Gatsby!" />
-        </p>
-        <h1>Gatsby Sass Starter</h1>
-        <p>
-          Welcome to your new Gatsby site.
-        </p>
-        <p>
-          Now go build something great.
-        </p>
-        <h2>Still Getting Started?</h2>
-        <p>
-          Run the following in your terminal!
-        </p>
-        <pre>
-          <code>
-            gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-sass
-          </code>
-        </pre>
+        <ul className="allCharactersContainer">
+          {allCharacters.map((character, index) => (
+            <CardEffect key={index} index={index} character={character} />
+          ))}
+        </ul>
       </Container>
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
