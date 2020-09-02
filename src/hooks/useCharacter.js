@@ -18,9 +18,10 @@ export default function useCharacter() {
   `);
 
   const character = data.allCharacter.nodes.map(node => {
-    const { image, name, gender, species, status } = node
+    const { id, image, name, gender, species, status } = node
 
     return {
+      id,
       image,
       name,
       gender,
